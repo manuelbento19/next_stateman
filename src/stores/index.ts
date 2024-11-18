@@ -1,3 +1,9 @@
-import { create } from "@bentoo/state-man";
+import { create, persist } from "@bentoo/state-man";
 
-export const useCounter = create (0)
+export const useCounter = create (
+    persist({
+        name: "counter",
+        data: 0,
+        storage: sessionStorage
+    })
+)
